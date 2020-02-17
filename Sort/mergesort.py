@@ -6,7 +6,9 @@ def mergesort(arr):
         R = arr[mid:]
         
         mergesort(L)
+        print(L)
         mergesort(R)
+        print(R)
 
         i = j = k = 0
         # i is for L
@@ -14,14 +16,13 @@ def mergesort(arr):
         # k is for Arr 
 
         while i < len(L) and j < len(R):
-            if L[i] > R[j]:
-                arr[k] = R[j]
-                j += 1
-                k += 1
-            else:
-                arr[k] == L[i]
+            if L[i] < R[j]:
+                arr[k] = L[i]
                 i += 1
-                k += 1
+            else:
+                arr[k] == R[j]
+                j += 1
+            k += 1
         
         # if L run out of items
         while j < len(R):
@@ -36,6 +37,6 @@ def mergesort(arr):
             k += 1
 
         
-arr = [12, 11, 13, 5, 6, 7]
+arr = [5,2,3,4,1]
 mergesort(arr)
 print(arr)
