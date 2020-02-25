@@ -6,9 +6,7 @@ def mergesort(arr):
         R = arr[mid:]
         
         mergesort(L)
-        print(L)
         mergesort(R)
-        print(R)
 
         i = j = k = 0
         # i is for L
@@ -20,7 +18,7 @@ def mergesort(arr):
                 arr[k] = L[i]
                 i += 1
             else:
-                arr[k] == R[j]
+                arr[k] = R[j]
                 j += 1
             k += 1
         
