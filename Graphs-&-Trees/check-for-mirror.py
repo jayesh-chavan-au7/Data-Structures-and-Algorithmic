@@ -46,29 +46,33 @@ def LOtraversal(root):
         if element.right is not None:
             q.put(element.right)
     print()
-
+L = []
+R = []
 def preorderL(root):
     if root:
-        print(root.data,end=" ")
+        L.append(root.data)
         preorderL(root.left)
         preorderL(root.right)
 
 def preorderR(root):
     if root:
-        print(root.data,end=" ")
+        R.append(root.data)
         preorderR(root.right)
         preorderR(root.left)
 
 def isMirror(root1,root2):
     preorderL(root1)
-    print()
     preorderR(root2)
+    if L == R:
+        print('Mirror')
+    else:
+        print('Not Mirror')
     
 
     
   
-a = list(map(int,input().rstrip().split()))
-b = list(map(int,input().rstrip().split()))
+a = list(map(int,input('Enter Tree 1 : ').rstrip().split()))
+b = list(map(int,input('Enter Tree 2 : ').rstrip().split()))
 BT1 = BinaryTree()
 BT2 = BinaryTree()
 BT1.LOinsertion(a)
