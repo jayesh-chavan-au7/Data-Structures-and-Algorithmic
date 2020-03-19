@@ -1,7 +1,4 @@
 
-# Note: This program only work for full balenced tree
-
-import queue
 class Node:
     def __init__(self,data):
         self.data = data
@@ -11,41 +8,8 @@ class Node:
 class BinaryTree():
     def __init__(self):
         self.root = None
+        self.tree = {}
 
-    def LOinsertion(self,arr):   # Using Level Order insertion we can only check for full balenced tree 
-        Q = queue.Queue()
-        i = 0
-        if self.root == None:
-            NewNode = Node(arr[i])
-            self.root = NewNode
-            i+=1
-        Q.put(NewNode)
-        while i < len(arr):
-            temp = Q.get()
-            if temp.left == None:
-                NewNode = Node(arr[i])
-                i+=1
-                temp.left = NewNode
-                Q.put(NewNode)
-            if temp.right == None:
-                NewNode = Node(arr[i])
-                i+=1
-                temp.right = NewNode
-                Q.put(NewNode)
-
-def LOtraversal(root):
-    if root is None:
-        return
-    q = queue.Queue()
-    q.put(root)
-    while not q.empty():
-        element = q.get()
-        print(element.data,end=" ")
-        if element.left is not None:
-            q.put(element.left)
-        if element.right is not None:
-            q.put(element.right)
-    print()
 L = []
 R = []
 def preorderL(root):
@@ -68,17 +32,21 @@ def isMirror(root1,root2):
     else:
         print('Not Mirror')
     
-
-    
-  
-a = list(map(int,input('Enter Tree 1 : ').rstrip().split()))
-b = list(map(int,input('Enter Tree 2 : ').rstrip().split()))
 BT1 = BinaryTree()
 BT2 = BinaryTree()
-BT1.LOinsertion(a)
-BT2.LOinsertion(b)
-# LOtraversal(BT1.root)
-# LOtraversal(BT2.root)
+
+BT1.root = Node(1) 
+BT2.root = Node(1) 
+  
+BT1.root.left = Node(2) 
+BT1.root.right = Node(3) 
+BT1.root.left.left = Node(4) 
+BT1.root.left.right = Node(5) 
+  
+BT2.root.left = Node(3) 
+BT2.root.right = Node(2) 
+BT2.root.right.left = Node(5) 
+BT2.root.right.right = Node(4) 
 isMirror(BT1.root,BT2.root)
 
 
