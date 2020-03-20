@@ -1,4 +1,4 @@
-def isMeanHeap(level,n):
+def isMinHeap(level,n):
     for i in range(int(n/2)-1,-1,-1):
         if level[i] > level[i*2+1]:
             return False
@@ -9,7 +9,7 @@ def isMeanHeap(level,n):
 if __name__ == '__main__':
     level=[10,15,14,25,30]
     n = len(level)
-    result = isMeanHeap(level,n)
+    result = isMinHeap(level,n)
     if result == False:
         print('not min heap tree')
     else:
